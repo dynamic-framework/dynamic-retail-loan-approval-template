@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 
-import { LiquidContextProvider, ModalContextProvider, MToastContainer } from '@dynamic-framework/ui-react';
+import {
+  LiquidContextProvider,
+  ModalContextProvider,
+  DToastContainer,
+} from '@dynamic-framework/ui-react';
 
-import '@dynamic-framework/ui/dist/css/dynamic-ui.css';
 import '@dynamic-framework/ui-react/dist/css/dynamic-ui-react.css';
 
 import './config/liquidConfig';
@@ -27,7 +30,7 @@ root.render(
           }}
         >
           <App />
-          <MToastContainer />
+          <DToastContainer />
         </ModalContextProvider>
       </Provider>
     </LiquidContextProvider>
