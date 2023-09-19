@@ -1,0 +1,53 @@
+{
+  "title": "Solicitar crédito",
+  "change": "Cambiar",
+  "status": {
+    "accepted": {
+      "alternativeImage": "Aceptado",
+      "text": "¡Felicitaciones {name}!",
+      "secondaryText": "Tu solicitud de crédito fue aprobada",
+      "message": "Ahora debes leerla y aceptar los términos y condiciones para continuar con el proceso.",
+      "conditions": {
+        "loanId": "Id del prestamo",
+        "text": "Tu solicitud ha sido aprobada con las siguientes condiciones:",
+        "amountRequested": "Monto solicitado",
+        "term": "Plazo",
+        "termInstallments": "{months} meses",
+        "monthlyInstallments": "Valor cuota mensual",
+        "annualInterestRate": "Tasa de interes efectiva anual",
+        "monthlyInterestRate": "Tasa de interés mensual",
+        "totalToPay": "<1>Total a pagar:</1><2>{amount}</2>",
+        "message": "*Toda información de pagos, retractos o devoluciones podrás encontrarlas en nuestro portal de soporte y al dar clic en el botón \"Aceptar\" aceptas nuestros términos y condiciones",
+        "buttonReject": "Rechazar",
+        "buttonAccept": "Aceptar"
+      }
+    },
+    "toPay": {
+      "alternativeImage": "Para desembolsar",
+      "text": "¡Tú dinero está en camino!",
+      "message": "El desembolso se verá reflejado en tú cuenta de ahorros entre 1 y 12 horas.",
+      "button": "Ir al dashboard"
+    }
+  },
+  "otp": {
+    "securityCode": "Ingresa el código que enviamos a tu celular",
+    "confirmLabel": "Hemos enviado un mensaje de texto a tu número telefónico:",
+    "enterCode": "Ingresa el código",
+    "notReceived": "¿No recibiste ningún código? ",
+    "resend": "<link1>Volver a enviar</link1> or <link2>comunicate con nosotros</link2>"
+  },
+  "tooltip": {
+    "annualInterestRate": "Es el precio (expresado en porcentaje) que se paga por pedir prestado el dinero, refleja no sólo la tasa de interés, sino también las tarifas que debe pagar para obtener el préstamo",
+    "monthlyInterestRate": "Es el precio (expresado en porcentaje) que se paga por pedir prestado el dinero, la tasa de interés no incluye las tarifas que le cobran por obtener el préstamo",
+    "lifeInsurance": "Es el valor que debes pagar para adquirir una cobertura sobre tu crédito, en caso de fallecimiento o incapacidad total y permanente"
+  },
+  "toast": {
+    "negativeBalance": "No se puede realizar el desembolso, porque la cuenta esta sobre girada y no permite realizar la transacción.",
+    "pendingApproval": "No se puede realizar el desembolso, por favor realizar nuevamente la solicitud del crédito."
+  },
+  "receiveFunds": "¿Donde quieres recibir tu dinero?",
+  "button": {
+    "continue": "Continuar",
+    "change": "Cambiar"
+  }
+}
