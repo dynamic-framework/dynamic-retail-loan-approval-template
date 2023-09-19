@@ -8,16 +8,17 @@ import {
 
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import useSavingsAccounts from '../hooks/useSavingsAccounts';
-import useTransferTo from '../hooks/useTransferTo';
 import { useAppSelector } from '../store/hooks';
 import { getReceiveAccount } from '../store/selectors';
 import AccountSkeleton from './AccountSkeleton';
+import useDepositAccounts from '../services/hooks/useDepositAccounts';
+import useTransferTo from '../services/hooks/useTransferTo';
+import { AccountTypeConfig } from '../services/config';
 
 export default function ReceiveFundsTo() {
   const { t } = useTranslation();
   const { openModal } = useModalContext();
-  const { loading: loadingAccounts } = useSavingsAccounts();
+  const { loading: loadingAccounts } = useDepositAccounts();
   const { loading: loadingTransfer, transfer } = useTransferTo();
   const receiveAccount = useAppSelector(getReceiveAccount);
 

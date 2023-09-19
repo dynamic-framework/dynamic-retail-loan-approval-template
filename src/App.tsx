@@ -6,7 +6,7 @@ import VerificationOTP from './components/VerificationOTP';
 import { useAppSelector } from './store/hooks';
 import { getStep } from './store/selectors';
 import LoanSkeleton from './components/LoanSkeleton';
-import useGetLoan from './hooks/useGetLoan';
+import useGetLoan from './services/hooks/useGetLoan';
 
 const COMPONENTS = {
   approval: StatusAccepted,

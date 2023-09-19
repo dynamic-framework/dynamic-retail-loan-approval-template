@@ -18,9 +18,9 @@ export const getStep = createDraftSafeSelector(
   (widget) => widget.step,
 );
 
-export const getSavingAccounts = createDraftSafeSelector(
+export const getDepositAccounts = createDraftSafeSelector(
   getState,
-  (widget) => widget.savingAccounts,
+  (widget) => widget.depositAccounts,
 );
 
 export const getReceiveAccount = createDraftSafeSelector(

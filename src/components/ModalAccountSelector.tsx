@@ -6,14 +6,14 @@ import {
   DQuickActionCheck,
 } from '@dynamic-framework/ui-react';
 import type { ModalProps } from '@dynamic-framework/ui-react';
-
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { getSavingAccounts, getReceiveAccount } from '../store/selectors';
+import { getDepositAccounts, getReceiveAccount } from '../store/selectors';
+import { Account } from '../services/interface';
 import { setReceiveAccount } from '../store/slice';
 
 export default function ModalAccountSelector({ closeModal }: ModalProps) {
   const dispatch = useAppDispatch();
-  const accounts = useAppSelector(getSavingAccounts);
+  const accounts = useAppSelector(getDepositAccounts);
   const receiveAccount = useAppSelector(getReceiveAccount);
   const [value, setValue] = useState<Account | undefined>(receiveAccount);
   const { format } = useFormatCurrency();
@@ -27,6 +27,7 @@ export default function ModalAccountSelector({ closeModal }: ModalProps) {
   return (
     <DModal
       name="accountSelector"
+      innerClass="d-block"
       isCentered
       isStatic
     >
@@ -38,9 +39,9 @@ export default function ModalAccountSelector({ closeModal }: ModalProps) {
               innerId={`account-${account.id}`}
               line1={account.name}
               line2={`••• ${account.accountNumber.slice(-3)}`}
-              line3={format(getAccounctValue(account))}
+              line3={format(account.balanceAvailable)}
               name="radioAccounts"
-              value={account.id as string}
+              value={account.id}
               isChecked={value?.id === account.id}
               onEventChange={() => onConfirm(account)}
             />

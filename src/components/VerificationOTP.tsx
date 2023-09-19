@@ -1,12 +1,11 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/anchor-has-content */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import { DButton, DInputPin } from '@dynamic-framework/ui-react';
 import { useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import useValidateOtp from '../hooks/useValidateOtp';
+import useValidateOtp from '../services/hooks/useValidateOtp';
 
 export default function VerificationOTP() {
   const { t } = useTranslation();
@@ -53,7 +52,7 @@ export default function VerificationOTP() {
             <DButton
               text={t('button.continue')}
               isPill
-              onEventClick={() => validateOtp(inputOTP)}
+              onEventClick={validateOtp}
               {...inputOTP.length < 4 && { state: 'disabled' }}
               isLoading={loading}
             />
