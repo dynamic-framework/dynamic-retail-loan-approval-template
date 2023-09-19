@@ -1,13 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { useCallback, useState } from 'react';
 import {
-  MModal,
+  DModal,
   useFormatCurrency,
-  MQuickActionCheck,
+  DQuickActionCheck,
 } from '@dynamic-framework/ui-react';
 import type { ModalProps } from '@dynamic-framework/ui-react';
-import { getProductValue } from '@modyo-dynamic/modyo-service-retail';
-import type { Product } from '@modyo-dynamic/modyo-service-retail';
 
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { getSavingAccounts, getReceiveAccount } from '../store/selectors';
@@ -17,17 +15,17 @@ export default function ModalAccountSelector({ closeModal }: ModalProps) {
   const dispatch = useAppDispatch();
   const accounts = useAppSelector(getSavingAccounts);
   const receiveAccount = useAppSelector(getReceiveAccount);
-  const [value, setValue] = useState<Product | undefined>(receiveAccount);
+  const [value, setValue] = useState<Account | undefined>(receiveAccount);
   const { format } = useFormatCurrency();
 
-  const onConfirm = useCallback((newValue: Product) => {
+  const onConfirm = useCallback((newValue: Account) => {
     setValue(newValue);
     dispatch(setReceiveAccount(newValue));
     closeModal();
   }, [closeModal, dispatch]);
 
   return (
-    <MModal
+    <DModal
       name="accountSelector"
       isCentered
       isStatic
@@ -35,20 +33,20 @@ export default function ModalAccountSelector({ closeModal }: ModalProps) {
       <div slot="body">
         <div className="d-flex flex-column p-3">
           {accounts.map((account) => (
-            <MQuickActionCheck
+            <DQuickActionCheck
               key={account.id}
-              mId={`account-${account.id}`}
+              innerId={`account-${account.id}`}
               line1={account.name}
-              line2={`••• ${account.productNumber.slice(-3)}`}
-              line3={format(getProductValue(account))}
+              line2={`••• ${account.accountNumber.slice(-3)}`}
+              line3={format(getAccounctValue(account))}
               name="radioAccounts"
               value={account.id as string}
               isChecked={value?.id === account.id}
-              onMChange={() => onConfirm(account)}
+              onEventChange={() => onConfirm(account)}
             />
           ))}
         </div>
       </div>
-    </MModal>
+    </DModal>
   );
 }

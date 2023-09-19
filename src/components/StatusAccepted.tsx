@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { liquidParser } from '@dynamic-framework/ui';
 import {
   useFormatCurrency,
-  MButton,
-  MTooltip,
-  MIcon,
-  MCurrencyText,
+  DButton,
+  DTooltip,
+  DIcon,
+  DCurrencyText,
+  liquidParser,
 } from '@dynamic-framework/ui-react';
 import { Trans, useTranslation } from 'react-i18next';
 import classNames from 'classnames';
@@ -20,7 +20,7 @@ export default function StatusAccepted() {
 
   const userName = liquidParser.parse('{{user.first_name}}');
   const loanOffer = useAppSelector(getLoanOffer);
-  const { details, loanDisplayId } = loanOffer!;
+  const { details, loanDisplayId } = loanOffer;
   const { loading, acceptLoan } = useAcceptLoan();
 
   return (
@@ -65,7 +65,7 @@ export default function StatusAccepted() {
             </div>
             <div className="d-flex gap-3">
               <span className="flex-grow-1">{t('status.accepted.conditions.amountRequested')}</span>
-              <MCurrencyText className="fw-bold" value={details.amount} />
+              <DCurrencyText className="fw-bold" value={details.amount} />
             </div>
             <div className="d-flex gap-3">
               <span className="flex-grow-1">{t('status.accepted.conditions.term')}</span>
@@ -73,19 +73,19 @@ export default function StatusAccepted() {
             </div>
             <div className="d-flex gap-3">
               <span className="flex-grow-1">{t('status.accepted.conditions.monthlyInstallments')}</span>
-              <MCurrencyText className="fw-bold" value={details.installments.amount} />
+              <DCurrencyText className="fw-bold" value={details.installments.amount} />
             </div>
             <div className="d-flex gap-3">
               <span className="d-flex flex-grow-1 align-items-center gap-2">
                 {t('status.accepted.conditions.annualInterestRate')}
-                <MTooltip
+                <DTooltip
                   className="bg-transparent border-0 p-0 cursor-help"
                   classNameContainer="max-width-tooltip"
                   placement="top"
                   padding={16}
                   offSet={5}
                   Component={(
-                    <MIcon
+                    <DIcon
                       icon="question-circle"
                       theme="secondary"
                       size="1rem"
@@ -93,7 +93,7 @@ export default function StatusAccepted() {
                   )}
                 >
                   <small>{t('tooltip.annualInterestRate')}</small>
-                </MTooltip>
+                </DTooltip>
               </span>
               <span className="fw-bold">
                 {details.interestRate.annually}
@@ -103,14 +103,14 @@ export default function StatusAccepted() {
             <div className="d-flex gap-3">
               <span className="d-flex flex-grow-1 align-items-center gap-2">
                 {t('status.accepted.conditions.monthlyInterestRate')}
-                <MTooltip
+                <DTooltip
                   className="bg-transparent border-0 p-0 cursor-help"
                   classNameContainer="max-width-tooltip"
                   placement="top"
                   padding={16}
                   offSet={5}
                   Component={(
-                    <MIcon
+                    <DIcon
                       icon="question-circle"
                       theme="secondary"
                       size="1rem"
@@ -118,7 +118,7 @@ export default function StatusAccepted() {
                   )}
                 >
                   <small>{t('tooltip.lifeInsurance')}</small>
-                </MTooltip>
+                </DTooltip>
               </span>
               <span className="fw-bold">
                 {details.interestRate.monthly}
@@ -135,19 +135,19 @@ export default function StatusAccepted() {
             'gap-2 gap-md-5 p-3',
           )}
           >
-            <MButton
+            <DButton
               className="d-grid flex-1"
               text={t('status.accepted.conditions.buttonReject')}
               variant="outline"
               theme="secondary"
               isPill
             />
-            <MButton
+            <DButton
               className="d-grid flex-1"
               isLoading={loading}
               text={t('status.accepted.conditions.buttonAccept')}
               isPill
-              onMClick={acceptLoan}
+              onEventClick={acceptLoan}
             />
           </div>
         </div>

@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable react/jsx-props-no-spreading */
-import { MButton, MInputPin } from '@dynamic-framework/ui-react';
+import { DButton, DInputPin } from '@dynamic-framework/ui-react';
 import { useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import useValidateOtp from '../hooks/useValidateOtp';
@@ -26,15 +26,15 @@ export default function VerificationOTP() {
               {t('otp.confirmLabel')}
             </p>
           </div>
-          <MInputPin
+          <DInputPin
             label="(+1) *** *** 787"
-            mId="verification-otp"
+            innerId="verification-otp"
             labelIcon=""
             hint={t('otp.enterCode')}
             characters={4}
-            onMChange={({ detail }: CustomEvent) => setInputOTP(detail as string)}
+            onEventChange={({ detail }: CustomEvent) => setInputOTP(detail as string)}
             type="number"
-            mInputMode="tel"
+            inputMode="tel"
             isValid={inputOTP.length === 4}
           />
           <div className="d-block">
@@ -50,10 +50,10 @@ export default function VerificationOTP() {
             </p>
           </div>
           <div className="d-flex justify-content-center">
-            <MButton
+            <DButton
               text={t('button.continue')}
               isPill
-              onMClick={() => validateOtp(inputOTP)}
+              onEventClick={() => validateOtp(inputOTP)}
               {...inputOTP.length < 4 && { state: 'disabled' }}
               isLoading={loading}
             />
