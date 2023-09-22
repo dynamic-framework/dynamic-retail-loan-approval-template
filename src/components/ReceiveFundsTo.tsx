@@ -1,24 +1,24 @@
 /* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable react/jsx-props-no-spreading */
 import {
-  MButton,
-  MQuickActionButton,
+  DButton,
+  DQuickActionButton,
   useModalContext,
 } from '@dynamic-framework/ui-react';
 
 import { useTranslation } from 'react-i18next';
-import { ProductTypeConfig } from '@modyo-dynamic/modyo-service-retail';
 import classNames from 'classnames';
-import useSavingsAccounts from '../hooks/useSavingsAccounts';
-import useTransferTo from '../hooks/useTransferTo';
 import { useAppSelector } from '../store/hooks';
 import { getReceiveAccount } from '../store/selectors';
 import AccountSkeleton from './AccountSkeleton';
+import useDepositAccounts from '../services/hooks/useDepositAccounts';
+import useTransferTo from '../services/hooks/useTransferTo';
+import { AccountTypeConfig } from '../services/config';
 
 export default function ReceiveFundsTo() {
   const { t } = useTranslation();
   const { openModal } = useModalContext();
-  const { loading: loadingAccounts } = useSavingsAccounts();
+  const { loading: loadingAccounts } = useDepositAccounts();
   const { loading: loadingTransfer, transfer } = useTransferTo();
   const receiveAccount = useAppSelector(getReceiveAccount);
 
@@ -38,23 +38,23 @@ export default function ReceiveFundsTo() {
             <AccountSkeleton />
           )}
           {!loadingAccounts && receiveAccount && (
-            <MQuickActionButton
+            <DQuickActionButton
               line1={receiveAccount.name}
               key="1"
-              line2={`••• ${receiveAccount.productNumber.slice(-3)}`}
-              representativeIcon={ProductTypeConfig[receiveAccount.type].icon}
-              representativeIconTheme={ProductTypeConfig[receiveAccount.type].theme}
+              line2={`••• ${receiveAccount.accountNumber.slice(-3)}`}
+              representativeIcon={AccountTypeConfig[receiveAccount.type].icon}
+              representativeIconTheme={AccountTypeConfig[receiveAccount.type].theme}
               representativeIconHasCircle
               actionLinkText={t('button.change')}
-              onMClick={() => openModal('accountSelector')}
+              onEventClick={() => openModal('accountSelector')}
             />
           )}
           <div className="d-flex justify-content-center">
-            <MButton
+            <DButton
               text={t('button.continue')}
               isPill
               isLoading={loadingTransfer}
-              onMClick={transfer}
+              onEventClick={transfer}
               {...!receiveAccount && {
                 state: 'disabled',
               }}

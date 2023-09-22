@@ -16,11 +16,8 @@
     "currency-precision": 2,
     "currency-separator": ".",
     "currency-decimal": ",",
-    "dashboard-path": "#",
-    "api-path": "https://stoplight.io/mocks/modyo/dynamic/204091081",
-    "mock-loans-otp": true,
-    "mock-loans": true,
-    "mock-products": true,
-    "use-authentication": false
+    "path-dashboard": "#",
+    "none-id-path": "#",
+    "api-path": "https://stoplight.io/mocks/modyo/dynamic/204091081"
   }
 }

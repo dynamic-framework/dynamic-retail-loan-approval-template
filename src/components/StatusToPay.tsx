@@ -1,13 +1,16 @@
-import { MButton, MIcon } from '@dynamic-framework/ui-react';
+import {
+  DButton,
+  DIcon,
+} from '@dynamic-framework/ui-react';
 import { useTranslation } from 'react-i18next';
-import { liquidParser } from '@dynamic-framework/ui';
+import WidgetUtils from '../services/utils/widgetUtils';
 
 export default function StatusToPay() {
   const { t } = useTranslation();
+  const { goToPath } = WidgetUtils();
 
   const goToHome = () => {
-    const urlDashboard = `${liquidParser.parse('{{site.url}}')}/${liquidParser.parse('{{vars.dashboard-path}}')}`;
-    window.location.href = urlDashboard;
+    goToPath('DASHBOARD');
   };
 
   return (
@@ -24,15 +27,15 @@ export default function StatusToPay() {
           {t('status.toPay.text')}
         </h2>
         <div className="d-flex align-items-center gap-3 bg-light rounded-2 py-3 px-4 shadow-sm">
-          <MIcon icon="chat" size="1.5rem" theme="secondary" />
+          <DIcon icon="chat" size="1.5rem" theme="secondary" />
           <p className="sp text-gray-700">
             {t('status.toPay.message')}
           </p>
         </div>
-        <MButton
+        <DButton
           text={t('status.toPay.button')}
           isPill
-          onMClick={goToHome}
+          onEventClick={goToHome}
         />
       </div>
     </div>
