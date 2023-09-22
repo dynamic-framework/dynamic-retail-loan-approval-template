@@ -1,16 +1,16 @@
 import {
   DButton,
   DIcon,
-  liquidParser,
 } from '@dynamic-framework/ui-react';
 import { useTranslation } from 'react-i18next';
+import WidgetUtils from '../services/utils/widgetUtils';
 
 export default function StatusToPay() {
   const { t } = useTranslation();
+  const { goToPath } = WidgetUtils();
 
   const goToHome = () => {
-    const urlDashboard = `${liquidParser.parse('{{site.url}}')}/${liquidParser.parse('{{vars.dashboard-path}}')}`;
-    window.location.href = urlDashboard;
+    goToPath('DASHBOARD');
   };
 
   return (

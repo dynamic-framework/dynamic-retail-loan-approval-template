@@ -8,18 +8,19 @@ import { setLoanOffer } from '../../store/slice';
 import { LoanRepository } from '../repositories';
 import getLoanIdQueryString from '../utils/getLoanIdQueryString';
 import errorHandler from '../../utils/errorHandler';
+import WidgetUtils from '../utils/widgetUtils';
 
 export default function useGetLoan() {
   const [loading, setLoading] = useState(false);
   const loanOffer = useAppSelector(getLoanOffer);
   const dispatch = useAppDispatch();
-
+  const { goToPath } = WidgetUtils();
   useEffect(() => {
     const abortController = new AbortController();
 
     const loanId = getLoanIdQueryString();
     if (!loanId) {
-      window.location.href = `${liquidParser.parse('{{site.url}}')}/${liquidParser.parse('{{vars.none-id-path}}')}`;
+      goToPath('EMPTY_ID');
       return () => {};
     }
     (async () => {
