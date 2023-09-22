@@ -8,7 +8,7 @@ import {
   DToastContainer,
 } from '@dynamic-framework/ui-react';
 
-import '@dynamic-framework/ui-react/dist/css/dynamic-ui-all.css';
+import '@dynamic-framework/ui-react/dist/css/dynamic-ui-react.css';
 
 import './config/liquidConfig';
 import './config/i18nConfig';
