@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { liquidParser } from '@dynamic-framework/ui-react';
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { getLoanOffer } from '../../store/selectors';
@@ -40,7 +39,7 @@ export default function useGetLoan() {
     return () => {
       abortController.abort();
     };
-  }, [dispatch]);
+  }, [dispatch, goToPath]);
 
   return {
     loading,
