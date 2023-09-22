@@ -7,7 +7,7 @@ import { setLoanOffer } from '../../store/slice';
 import { LoanRepository } from '../repositories';
 import getLoanIdQueryString from '../utils/getLoanIdQueryString';
 import errorHandler from '../../utils/errorHandler';
-import WidgetUtils from '../utils/widgetUtils';
+import WidgetUtils from '../../utils/widgetUtils';
 
 export default function useGetLoan() {
   const [loading, setLoading] = useState(false);
