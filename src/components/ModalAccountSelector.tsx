@@ -4,6 +4,7 @@ import {
   DModal,
   useFormatCurrency,
   DQuickActionCheck,
+  DModalBody,
 } from '@dynamic-framework/ui-react';
 import type { ModalProps } from '@dynamic-framework/ui-react';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
@@ -27,27 +28,27 @@ export default function ModalAccountSelector({ closeModal }: ModalProps) {
   return (
     <DModal
       name="accountSelector"
-      innerClass="d-block"
+      className="d-block"
       isCentered
       isStatic
     >
-      <div slot="body">
+      <DModalBody>
         <div className="d-flex flex-column p-3">
           {accounts.map((account) => (
             <DQuickActionCheck
               key={account.id}
-              innerId={`account-${account.id}`}
+              id={`account-${account.id}`}
               line1={account.name}
               line2={`••• ${account.accountNumber.slice(-3)}`}
               line3={format(account.balanceAvailable)}
               name="radioAccounts"
               value={account.id}
               isChecked={value?.id === account.id}
-              onEventChange={() => onConfirm(account)}
+              onChange={() => onConfirm(account)}
             />
           ))}
         </div>
-      </div>
+      </DModalBody>
     </DModal>
   );
 }

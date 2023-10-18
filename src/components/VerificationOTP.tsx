@@ -27,13 +27,12 @@ export default function VerificationOTP() {
           </div>
           <DInputPin
             label="(+1) *** *** 787"
-            innerId="verification-otp"
+            id="verification-otp"
             labelIcon=""
             hint={t('otp.enterCode')}
             characters={4}
-            onEventChange={({ detail }: CustomEvent) => setInputOTP(detail as string)}
+            onChange={(value) => setInputOTP(value)}
             type="number"
-            inputMode="tel"
             isValid={inputOTP.length === 4}
           />
           <div className="d-block">
@@ -52,7 +51,7 @@ export default function VerificationOTP() {
             <DButton
               text={t('button.continue')}
               isPill
-              onEventClick={validateOtp}
+              onClick={validateOtp}
               {...inputOTP.length < 4 && { state: 'disabled' }}
               isLoading={loading}
             />

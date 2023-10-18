@@ -1,9 +1,9 @@
 {
   "name": "@dynamic-framework/dynamic-retail-loan-approval-template",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "@dynamic-framework/ui-react": "^1.4.0",
+    "@dynamic-framework/ui-react": "^1.7.2",
     "@reduxjs/toolkit": "^1.8.4",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -11,7 +11,7 @@
     "axios": "^1.1.2",
     "classnames": "^2.3.2",
     "i18next": "~21.9.0",
-    "liquidjs": "^9.39.2",
+    "liquidjs": "^10.9.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "~11.18.3",
@@ -53,7 +53,8 @@
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests",
     "eject": "craco eject",
     "eslint": "eslint src/**/*{.ts,.tsx}",
-    "push": "DEBUG=* npx @modyo/cli@latest push --publish"
+    "push": "npm run build && npx @modyo/cli@latest push --publish",
+    "push:debug": "npm run build && DEBUG=* npx @modyo/cli@latest push --publish"
   },
   "browserslist": {
     "production": [
@@ -66,5 +67,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "engines": {
+    "node": ">=18.18"
   }
 }
