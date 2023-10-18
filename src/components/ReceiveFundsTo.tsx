@@ -46,7 +46,7 @@ export default function ReceiveFundsTo() {
               representativeIconTheme={AccountTypeConfig[receiveAccount.type].theme}
               representativeIconHasCircle
               actionLinkText={t('button.change')}
-              onEventClick={() => openModal('accountSelector')}
+              onClick={() => openModal('accountSelector')}
             />
           )}
           <div className="d-flex justify-content-center">
@@ -54,7 +54,7 @@ export default function ReceiveFundsTo() {
               text={t('button.continue')}
               isPill
               isLoading={loadingTransfer}
-              onEventClick={transfer}
+              onClick={transfer}
               {...!receiveAccount && {
                 state: 'disabled',
               }}

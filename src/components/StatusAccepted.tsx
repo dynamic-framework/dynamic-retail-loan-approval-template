@@ -147,7 +147,7 @@ export default function StatusAccepted() {
               isLoading={loading}
               text={t('status.accepted.conditions.buttonAccept')}
               isPill
-              onEventClick={acceptLoan}
+              onClick={acceptLoan}
             />
           </div>
         </div>
