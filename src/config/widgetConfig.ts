@@ -1,6 +1,8 @@
-import { liquidParser } from '@dynamic-framework/ui-react';
+import liquidParser from '../utils/liquidParser';
 
 export const SITE_URL = liquidParser.parse('{{site.url}}');
+export const SITE_LANG = liquidParser.parse('{{site.language}}');
+export const USER_NAME = liquidParser.parse('{{user.first_name}}');
 
 export const SITE_PATH = {
   DASHBOARD: liquidParser.parse('{{vars.path-dashboard}}'),
