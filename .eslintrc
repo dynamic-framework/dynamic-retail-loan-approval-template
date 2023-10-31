@@ -8,7 +8,7 @@
   ],
   "parserOptions": {
     "project": [
-      "./tsconfig.json"
+      "**/tsconfig.json"
     ],
     "EXPERIMENTAL_useSourceOfProjectReferenceRedirect": true
   },
@@ -33,7 +33,15 @@
         "children": true
       }
     ],
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "webpack.config.js"
+        ]
+      }
+    ]
   },
   "overrides": [
     {
@@ -47,13 +55,13 @@
         "plugin:@typescript-eslint/recommended-requiring-type-checking"
       ],
       "rules": {
+        "@typescript-eslint/no-floating-promises": "off",
         "@typescript-eslint/no-misused-promises": [
           "error",
           {
             "checksVoidReturn": false
           }
-        ],
-        "@typescript-eslint/no-floating-promises": "off"
+        ]
       }
     }
   ],
