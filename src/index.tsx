@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 
 import {
-  LiquidContextProvider,
+  DContextProvider,
   ModalContextProvider,
   DToastContainer,
 } from '@dynamic-framework/ui-react';
@@ -16,15 +16,12 @@ import reportWebVitals from './reportWebVitals';
 import store from './store/store';
 import ModalAccountSelector from './components/ModalAccountSelector';
 
-if (process.env.NODE_ENV === 'development') {
-  // eslint-disable-next-line global-require
-  require('@dynamic-framework/ui-react/dist/css/dynamic-ui.css');
-}
+import '@dynamic-framework/ui-react/dist/css/dynamic-ui.css';
 
 const root = ReactDOM.createRoot(document.getElementById('loanApprovalTemplate') as Element);
 root.render(
   <React.StrictMode>
-    <LiquidContextProvider>
+    <DContextProvider>
       <Provider store={store}>
         <ModalContextProvider
           portalName="portal"
@@ -36,7 +33,7 @@ root.render(
           <DToastContainer />
         </ModalContextProvider>
       </Provider>
-    </LiquidContextProvider>
+    </DContextProvider>
   </React.StrictMode>,
 );
 

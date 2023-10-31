@@ -6,19 +6,18 @@ import {
   DTooltip,
   DIcon,
   DCurrencyText,
-  liquidParser,
 } from '@dynamic-framework/ui-react';
 import { Trans, useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import { useAppSelector } from '../store/hooks';
 import { getLoanOffer } from '../store/selectors';
 import useAcceptLoan from '../services/hooks/useAcceptLoan';
+import { USER_NAME } from '../config/widgetConfig';
 
 export default function StatusAccepted() {
   const { t } = useTranslation();
   const { format } = useFormatCurrency();
 
-  const userName = liquidParser.parse('{{user.first_name}}');
   const loanOffer = useAppSelector(getLoanOffer);
   const { details, loanDisplayId } = loanOffer!;
   const { loading, acceptLoan } = useAcceptLoan();
@@ -34,7 +33,7 @@ export default function StatusAccepted() {
           />
         </div>
         <h2 className="fs-4 fw-bold text-dark text-center">
-          {t('status.accepted.text', { name: userName })}
+          {t('status.accepted.text', { name: USER_NAME })}
         </h2>
         <h3 className="fs-6 fw-bold text-dark text-center">
           {t('status.accepted.secondaryText')}
