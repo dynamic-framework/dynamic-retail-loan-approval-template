@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import {
   DContextProvider,
-  ModalContextProvider,
+  DModalContextProvider,
   DToastContainer,
 } from '@dynamic-framework/ui-react';
 
@@ -17,13 +17,17 @@ import store from './store/store';
 import ModalAccountSelector from './components/ModalAccountSelector';
 
 import '@dynamic-framework/ui-react/dist/css/dynamic-ui.css';
+import { VARS_CURRENCY, SITE_LANG } from './config/widgetConfig';
 
 const root = ReactDOM.createRoot(document.getElementById('loanApprovalTemplate') as Element);
 root.render(
   <React.StrictMode>
-    <DContextProvider>
+    <DContextProvider
+      currency={VARS_CURRENCY}
+      language={SITE_LANG}
+    >
       <Provider store={store}>
-        <ModalContextProvider
+        <DModalContextProvider
           portalName="portal"
           availableModals={{
             accountSelector: ModalAccountSelector,
@@ -31,7 +35,7 @@ root.render(
         >
           <App />
           <DToastContainer />
-        </ModalContextProvider>
+        </DModalContextProvider>
       </Provider>
     </DContextProvider>
   </React.StrictMode>,

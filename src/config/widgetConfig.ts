@@ -9,4 +9,11 @@ export const SITE_PATH = {
   EMPTY_ID: liquidParser.parse('{{vars.none-id-path}}'),
 };
 
+export const VARS_CURRENCY = {
+  symbol: liquidParser.parse('{{vars.currency-symbol}}'),
+  precision: Number(liquidParser.parse('{{vars.currency-precision}}')),
+  separator: liquidParser.parse('{{vars.currency-separator}}'),
+  decimal: liquidParser.parse('{{vars.currency-decimal}}'),
+};
+
 export type SitePath = keyof typeof SITE_PATH;
