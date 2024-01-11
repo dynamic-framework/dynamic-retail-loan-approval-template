@@ -33,7 +33,7 @@ export default function VerificationOTP() {
             characters={4}
             onChange={(value) => setInputOTP(value)}
             type="number"
-            isValid={inputOTP.length === 4}
+            valid={inputOTP.length === 4}
           />
           <div className="d-block">
             <p className="small mb-2">{t('otp.notReceived')}</p>
@@ -50,10 +50,10 @@ export default function VerificationOTP() {
           <div className="d-flex justify-content-center">
             <DButton
               text={t('button.continue')}
-              isPill
+              pill
               onClick={validateOtp}
               {...inputOTP.length < 4 && { state: 'disabled' }}
-              isLoading={loading}
+              loading={loading}
             />
           </div>
         </div>

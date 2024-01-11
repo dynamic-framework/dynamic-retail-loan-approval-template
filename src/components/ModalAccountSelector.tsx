@@ -29,8 +29,8 @@ export default function ModalAccountSelector({ closeModal }: ModalProps) {
     <DModal
       name="accountSelector"
       className="d-block"
-      isCentered
-      isStatic
+      centered
+      staticBackdrop
     >
       <DModalBody>
         <div className="d-flex flex-column p-3">
@@ -43,7 +43,7 @@ export default function ModalAccountSelector({ closeModal }: ModalProps) {
               line3={format(account.balanceAvailable)}
               name="radioAccounts"
               value={account.id}
-              isChecked={value?.id === account.id}
+              checked={value?.id === account.id}
               onChange={() => onConfirm(account)}
             />
           ))}

@@ -78,8 +78,8 @@ export default function StatusAccepted() {
               <span className="d-flex flex-grow-1 align-items-center gap-2">
                 {t('status.accepted.conditions.annualInterestRate')}
                 <DTooltip
-                  className="bg-transparent border-0 p-0 cursor-help"
-                  classNameContainer="max-width-tooltip"
+                  childrenClassName="bg-transparent border-0 p-0 cursor-help"
+                  className="max-width-tooltip"
                   placement="top"
                   padding={16}
                   offSet={5}
@@ -103,8 +103,8 @@ export default function StatusAccepted() {
               <span className="d-flex flex-grow-1 align-items-center gap-2">
                 {t('status.accepted.conditions.monthlyInterestRate')}
                 <DTooltip
-                  className="bg-transparent border-0 p-0 cursor-help"
-                  classNameContainer="max-width-tooltip"
+                  childrenClassName="bg-transparent border-0 p-0 cursor-help"
+                  className="max-width-tooltip"
                   placement="top"
                   padding={16}
                   offSet={5}
@@ -139,13 +139,13 @@ export default function StatusAccepted() {
               text={t('status.accepted.conditions.buttonReject')}
               variant="outline"
               theme="secondary"
-              isPill
+              pill
             />
             <DButton
               className="d-grid flex-1"
-              isLoading={loading}
+              loading={loading}
               text={t('status.accepted.conditions.buttonAccept')}
-              isPill
+              pill
               onClick={acceptLoan}
             />
           </div>
