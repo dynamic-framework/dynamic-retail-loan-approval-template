@@ -1,9 +1,9 @@
 {
   "name": "@dynamic-framework/dynamic-retail-loan-approval-template",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "dependencies": {
-    "@dynamic-framework/ui-react": "^1.12.1",
+    "@dynamic-framework/ui-react": "^1.15.1",
     "@reduxjs/toolkit": "^1.8.4",
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.0.0",
@@ -72,10 +72,12 @@
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests",
     "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests --watch",
     "eslint": "eslint src/**/*{.ts,.tsx}",
+    "stylelint": "stylelint \"src/**/*.{css,scss}\" --rd",
     "push": "npm run build && npx @modyo/cli@latest push --publish",
     "push:debug": "npm run build && DEBUG=* npx @modyo/cli@latest push --publish",
-    "prepare": "husky install",
-    "lint-staged": "lint-staged"
+    "preview": "npm run start && npx @modyo/cli@latest preview",
+    "lint-staged": "lint-staged",
+    "prepare": "husky install"
   },
   "browserslist": {
     "production": [
