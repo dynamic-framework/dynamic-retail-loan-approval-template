@@ -1,6 +1,6 @@
 import { GenericAbortSignal } from 'axios';
 
-import ApiClient from '../clients/ApiClient';
+import ApiClient from '../clients/apiClient';
 import { ApiLoanAccepted, ApiLoanReview } from '../api-interface';
 import { loanAcceptMapper, loanReviewMapper } from '../mappers/loanReviewMapper';
 
