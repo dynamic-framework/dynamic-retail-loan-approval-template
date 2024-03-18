@@ -21,7 +21,7 @@ export default function VerificationOTP() {
             <h2 className="fs-5 fw-bold mb-4">
               {t('otp.securityCode')}
             </h2>
-            <p className="sp">
+            <p className="sp mb-0">
               {t('otp.confirmLabel')}
             </p>
           </div>
@@ -37,7 +37,7 @@ export default function VerificationOTP() {
           />
           <div className="d-block">
             <p className="small mb-2">{t('otp.notReceived')}</p>
-            <p className="small">
+            <p className="small mb-0">
               <Trans
                 i18nKey="otp.resend"
                 components={{
