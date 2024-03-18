@@ -43,7 +43,7 @@ export default function StatusAccepted() {
         </p>
       </div>
       <div className="col-12 col-lg-6">
-        <div className="d-flex flex-column gap-3 bg-white p-3 mx-md-5 rounded-2 shadow-sm">
+        <div className="d-flex flex-column gap-4 bg-white p-3 mx-md-5 rounded-2 shadow-sm">
           <h5 className="fw-bold">
             {t('status.accepted.conditions.text')}
           </h5>
@@ -57,24 +57,24 @@ export default function StatusAccepted() {
               }}
             />
           </div>
-          <div className="d-flex flex-column gap-3 bg-light rounded-1 p-3">
-            <div className="d-flex gap-3">
+          <div className="d-flex flex-column gap-4 bg-light rounded-1 p-3">
+            <div className="d-flex gap-4">
               <span className="flex-grow-1">{t('status.accepted.conditions.loanId')}</span>
               <span className="fw-bold">{loanDisplayId}</span>
             </div>
-            <div className="d-flex gap-3">
+            <div className="d-flex gap-4">
               <span className="flex-grow-1">{t('status.accepted.conditions.amountRequested')}</span>
               <DCurrencyText className="fw-bold" value={details.amount} />
             </div>
-            <div className="d-flex gap-3">
+            <div className="d-flex gap-4">
               <span className="flex-grow-1">{t('status.accepted.conditions.term')}</span>
               <span className="fw-bold">{t('status.accepted.conditions.termInstallments', { months: details.installments.count })}</span>
             </div>
-            <div className="d-flex gap-3">
+            <div className="d-flex gap-4">
               <span className="flex-grow-1">{t('status.accepted.conditions.monthlyInstallments')}</span>
               <DCurrencyText className="fw-bold" value={details.installments.amount} />
             </div>
-            <div className="d-flex gap-3">
+            <div className="d-flex gap-4">
               <span className="d-flex flex-grow-1 align-items-center gap-2">
                 {t('status.accepted.conditions.annualInterestRate')}
                 <DTooltip
@@ -99,7 +99,7 @@ export default function StatusAccepted() {
                 %
               </span>
             </div>
-            <div className="d-flex gap-3">
+            <div className="d-flex gap-4">
               <span className="d-flex flex-grow-1 align-items-center gap-2">
                 {t('status.accepted.conditions.monthlyInterestRate')}
                 <DTooltip
