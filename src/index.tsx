@@ -17,15 +17,11 @@ import store from './store/store';
 import ModalAccountSelector from './components/ModalAccountSelector';
 
 import '@dynamic-framework/ui-react/dist/css/dynamic-ui.css';
-import { VARS_CURRENCY, SITE_LANG } from './config/widgetConfig';
 
 const root = ReactDOM.createRoot(document.getElementById('loanApprovalTemplate') as Element);
 root.render(
   <React.StrictMode>
-    <DContextProvider
-      currency={VARS_CURRENCY}
-      language={SITE_LANG}
-    >
+    <DContextProvider>
       <Provider store={store}>
         <DModalContextProvider
           portalName="portal"
