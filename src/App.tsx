@@ -34,7 +34,7 @@ export default function App() {
   }, [setContext]);
 
   return (
-    <div className="container py-3">
+    <div className="container py-4">
       {(loading || !loanOffer) && <LoanSkeleton />}
       {!loading && loanOffer && <View />}
     </div>

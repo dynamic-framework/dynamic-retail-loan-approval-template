@@ -38,16 +38,16 @@ export default function StatusAccepted() {
         <h3 className="fs-6 fw-bold text-dark text-center">
           {t('status.accepted.secondaryText')}
         </h3>
-        <p className="py-3 px-5 text-center">
+        <p className="py-4 px-8 text-center">
           {t('status.accepted.message')}
         </p>
       </div>
       <div className="col-12 col-lg-6">
-        <div className="d-flex flex-column gap-4 bg-white p-3 mx-md-5 rounded-2 shadow-sm">
+        <div className="d-flex flex-column gap-4 bg-white p-4 mx-md-8 rounded-2 shadow-sm">
           <h5 className="fw-bold">
             {t('status.accepted.conditions.text')}
           </h5>
-          <div className="d-flex align-items-center gap-1 bg-light rounded-1 p-3">
+          <div className="d-flex align-items-center gap-1 bg-light rounded-1 p-4">
             <Trans
               i18nKey="status.accepted.conditions.totalToPay"
               values={{ amount: format(details.total) }}
@@ -57,7 +57,7 @@ export default function StatusAccepted() {
               }}
             />
           </div>
-          <div className="d-flex flex-column gap-4 bg-light rounded-1 p-3">
+          <div className="d-flex flex-column gap-4 bg-light rounded-1 p-4">
             <div className="d-flex gap-4">
               <span className="flex-grow-1">{t('status.accepted.conditions.loanId')}</span>
               <span className="fw-bold">{loanDisplayId}</span>
@@ -131,7 +131,7 @@ export default function StatusAccepted() {
           <div className={classNames(
             'd-flex flex-column flex-sm-row',
             'align-items-stretch',
-            'gap-2 gap-md-5 p-3',
+            'gap-2 gap-md-8 p-4',
           )}
           >
             <DButton

@@ -26,7 +26,7 @@ export default function StatusToPay() {
         <h2 className="fs-5 fw-bold text-gray text-center">
           {t('status.toPay.text')}
         </h2>
-        <div className="d-flex align-items-center gap-4 bg-light rounded-2 py-3 px-4 shadow-sm">
+        <div className="d-flex align-items-center gap-4 bg-light rounded-2 py-4 px-6 shadow-sm">
           <DIcon icon="chat" size="1.5rem" theme="secondary" />
           <p className="sp text-gray-700">
             {t('status.toPay.message')}

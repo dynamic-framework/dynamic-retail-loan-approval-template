@@ -16,9 +16,9 @@ export default function VerificationOTP() {
   return (
     <div className="row justify-content-center">
       <div className="col-lg-8 col-xl-6">
-        <div className="d-flex flex-column gap-6 bg-white rounded p-3 pb-5 shadow-sm">
+        <div className="d-flex flex-column gap-6 bg-white rounded p-4 pb-8 shadow-sm">
           <div className="d-block">
-            <h2 className="fs-5 fw-bold mb-3">
+            <h2 className="fs-5 fw-bold mb-4">
               {t('otp.securityCode')}
             </h2>
             <p className="sp">
