@@ -52,7 +52,6 @@ export default function ReceiveFundsTo() {
           <div className="d-flex justify-content-center">
             <DButton
               text={t('button.continue')}
-              pill
               loading={loadingTransfer}
               onClick={transfer}
               {...!receiveAccount && {

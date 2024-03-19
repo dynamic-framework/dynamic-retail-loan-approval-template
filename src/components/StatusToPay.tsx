@@ -34,7 +34,6 @@ export default function StatusToPay() {
         </div>
         <DButton
           text={t('status.toPay.button')}
-          pill
           onClick={goToHome}
         />
       </div>

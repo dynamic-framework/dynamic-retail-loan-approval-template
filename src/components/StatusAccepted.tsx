@@ -139,13 +139,11 @@ export default function StatusAccepted() {
               text={t('status.accepted.conditions.buttonReject')}
               variant="outline"
               theme="secondary"
-              pill
             />
             <DButton
               className="d-grid flex-1"
               loading={loading}
               text={t('status.accepted.conditions.buttonAccept')}
-              pill
               onClick={acceptLoan}
             />
           </div>

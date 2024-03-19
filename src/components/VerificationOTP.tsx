@@ -50,7 +50,6 @@ export default function VerificationOTP() {
           <div className="d-flex justify-content-center">
             <DButton
               text={t('button.continue')}
-              pill
               onClick={validateOtp}
               {...inputOTP.length < 4 && { state: 'disabled' }}
               loading={loading}
