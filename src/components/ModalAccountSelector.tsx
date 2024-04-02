@@ -32,7 +32,7 @@ export default function ModalAccountSelector({ closeModal }: ModalProps) {
       centered
       staticBackdrop
     >
-      <DModalBody className="p-3">
+      <DModalBody className="p-4">
         <div className="d-flex flex-column">
           {accounts.map((account) => (
             <DQuickActionCheck

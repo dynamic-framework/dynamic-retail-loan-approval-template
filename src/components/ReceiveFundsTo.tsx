@@ -28,7 +28,7 @@ export default function ReceiveFundsTo() {
         <div className={classNames(
           'd-flex flex-column',
           'bg-white rounded shadow-sm',
-          'gap-4 p-3 pb-5',
+          'gap-6 p-4 pb-8',
         )}
         >
           <h2 className="fs-4 fw-bold">
@@ -52,7 +52,6 @@ export default function ReceiveFundsTo() {
           <div className="d-flex justify-content-center">
             <DButton
               text={t('button.continue')}
-              pill
               loading={loadingTransfer}
               onClick={transfer}
               {...!receiveAccount && {
