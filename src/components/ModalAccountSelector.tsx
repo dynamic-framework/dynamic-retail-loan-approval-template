@@ -5,15 +5,17 @@ import {
   useFormatCurrency,
   DQuickActionCheck,
   DModalBody,
+  useDPortalContext,
 } from '@dynamic-framework/ui-react';
-import type { ModalProps } from '@dynamic-framework/ui-react';
+
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { getDepositAccounts, getReceiveAccount } from '../store/selectors';
 import { Account } from '../services/interface';
 import { setReceiveAccount } from '../store/slice';
 
-export default function ModalAccountSelector({ closeModal }: ModalProps) {
+export default function ModalAccountSelector() {
   const dispatch = useAppDispatch();
+  const { closePortal } = useDPortalContext();
   const accounts = useAppSelector(getDepositAccounts);
   const receiveAccount = useAppSelector(getReceiveAccount);
   const [value, setValue] = useState<Account | undefined>(receiveAccount);
@@ -22,8 +24,8 @@ export default function ModalAccountSelector({ closeModal }: ModalProps) {
   const onConfirm = useCallback((newValue: Account) => {
     setValue(newValue);
     dispatch(setReceiveAccount(newValue));
-    closeModal();
-  }, [closeModal, dispatch]);
+    closePortal();
+  }, [closePortal, dispatch]);
 
   return (
     <DModal
