@@ -24,7 +24,7 @@ root.render(
       <DContextProvider
         portalName="portal"
         availablePortals={{
-          accountSelector: ModalAccountSelector,
+          accountSelectorModal: ModalAccountSelector,
         }}
       >
         <App />
