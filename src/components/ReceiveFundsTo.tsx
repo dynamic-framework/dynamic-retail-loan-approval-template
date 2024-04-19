@@ -3,7 +3,7 @@
 import {
   DButton,
   DQuickActionButton,
-  useDModalContext,
+  useDPortalContext,
 } from '@dynamic-framework/ui-react';
 
 import { useTranslation } from 'react-i18next';
@@ -17,7 +17,7 @@ import { AccountTypeConfig } from '../services/config';
 
 export default function ReceiveFundsTo() {
   const { t } = useTranslation();
-  const { openModal } = useDModalContext();
+  const { openPortal } = useDPortalContext();
   const { loading: loadingAccounts } = useDepositAccounts();
   const { loading: loadingTransfer, transfer } = useTransferTo();
   const receiveAccount = useAppSelector(getReceiveAccount);
@@ -46,7 +46,7 @@ export default function ReceiveFundsTo() {
               representativeIconTheme={AccountTypeConfig[receiveAccount.type].theme}
               representativeIconHasCircle
               actionLinkText={t('button.change')}
-              onClick={() => openModal('accountSelector', undefined)}
+              onClick={() => openPortal('accountSelectorModal', undefined)}
             />
           )}
           <div className="d-flex justify-content-center">
