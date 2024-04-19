@@ -3,7 +3,7 @@
 import {
   DButton,
   DQuickActionButton,
-  useModalContext,
+  useDPortalContext,
 } from '@dynamic-framework/ui-react';
 
 import { useTranslation } from 'react-i18next';
@@ -17,7 +17,7 @@ import { AccountTypeConfig } from '../services/config';
 
 export default function ReceiveFundsTo() {
   const { t } = useTranslation();
-  const { openModal } = useModalContext();
+  const { openPortal } = useDPortalContext();
   const { loading: loadingAccounts } = useDepositAccounts();
   const { loading: loadingTransfer, transfer } = useTransferTo();
   const receiveAccount = useAppSelector(getReceiveAccount);
@@ -28,7 +28,7 @@ export default function ReceiveFundsTo() {
         <div className={classNames(
           'd-flex flex-column',
           'bg-white rounded shadow-sm',
-          'gap-4 p-3 pb-5',
+          'gap-6 p-4 pb-8',
         )}
         >
           <h2 className="fs-4 fw-bold">
@@ -46,14 +46,13 @@ export default function ReceiveFundsTo() {
               representativeIconTheme={AccountTypeConfig[receiveAccount.type].theme}
               representativeIconHasCircle
               actionLinkText={t('button.change')}
-              onClick={() => openModal('accountSelector')}
+              onClick={() => openPortal('accountSelectorModal', undefined)}
             />
           )}
           <div className="d-flex justify-content-center">
             <DButton
               text={t('button.continue')}
-              isPill
-              isLoading={loadingTransfer}
+              loading={loadingTransfer}
               onClick={transfer}
               {...!receiveAccount && {
                 state: 'disabled',

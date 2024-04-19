@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 
 import {
   DContextProvider,
-  ModalContextProvider,
   DToastContainer,
 } from '@dynamic-framework/ui-react';
 
@@ -24,19 +23,17 @@ if (process.env.NODE_ENV === 'development') {
 const root = ReactDOM.createRoot(document.getElementById('loanApprovalTemplate') as Element);
 root.render(
   <React.StrictMode>
-    <DContextProvider>
-      <Provider store={store}>
-        <ModalContextProvider
-          portalName="portal"
-          availableModals={{
-            accountSelector: ModalAccountSelector,
-          }}
-        >
-          <App />
-          <DToastContainer />
-        </ModalContextProvider>
-      </Provider>
-    </DContextProvider>
+    <Provider store={store}>
+      <DContextProvider
+        portalName="portal"
+        availablePortals={{
+          accountSelectorModal: ModalAccountSelector,
+        }}
+      >
+        <App />
+        <DToastContainer />
+      </DContextProvider>
+    </Provider>
   </React.StrictMode>,
 );
 

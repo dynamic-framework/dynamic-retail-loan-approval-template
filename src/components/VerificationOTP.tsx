@@ -16,12 +16,12 @@ export default function VerificationOTP() {
   return (
     <div className="row justify-content-center">
       <div className="col-lg-8 col-xl-6">
-        <div className="d-flex flex-column gap-4 bg-white rounded p-3 pb-5 shadow-sm">
+        <div className="d-flex flex-column gap-6 bg-white rounded p-4 pb-8 shadow-sm">
           <div className="d-block">
-            <h2 className="fs-5 fw-bold mb-3">
+            <h2 className="fs-5 fw-bold mb-4">
               {t('otp.securityCode')}
             </h2>
-            <p className="sp">
+            <p className="sp mb-0">
               {t('otp.confirmLabel')}
             </p>
           </div>
@@ -33,11 +33,11 @@ export default function VerificationOTP() {
             characters={4}
             onChange={(value) => setInputOTP(value)}
             type="number"
-            isValid={inputOTP.length === 4}
+            valid={inputOTP.length === 4}
           />
           <div className="d-block">
             <p className="small mb-2">{t('otp.notReceived')}</p>
-            <p className="small">
+            <p className="small mb-0">
               <Trans
                 i18nKey="otp.resend"
                 components={{
@@ -50,10 +50,9 @@ export default function VerificationOTP() {
           <div className="d-flex justify-content-center">
             <DButton
               text={t('button.continue')}
-              isPill
               onClick={validateOtp}
               {...inputOTP.length < 4 && { state: 'disabled' }}
-              isLoading={loading}
+              loading={loading}
             />
           </div>
         </div>
