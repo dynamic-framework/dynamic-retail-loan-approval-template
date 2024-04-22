@@ -46,7 +46,7 @@ export default function ReceiveFundsTo() {
               representativeIconTheme={AccountTypeConfig[receiveAccount.type].theme}
               representativeIconHasCircle
               actionLinkText={t('button.change')}
-              onClick={() => openPortal('accountSelectorModal', undefined)}
+              onClick={() => openPortal('modalAccountSelector', undefined)}
             />
           )}
           <div className="d-flex justify-content-center">
