@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-import { AccountRepository } from '../repositories';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { getDepositAccounts } from '../../store/selectors';
 import { setDepositAccounts, setReceiveAccount } from '../../store/slice';
 import errorHandler from '../../utils/errorHandler';
+import { AccountRepository } from '../repositories';
 
 export default function useDepositAccounts() {
   const [loading, setLoading] = useState(false);

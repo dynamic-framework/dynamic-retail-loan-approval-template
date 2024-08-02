@@ -3,11 +3,10 @@ import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { getLoanOffer } from '../../store/selectors';
 import { setLoanOffer } from '../../store/slice';
-
-import { LoanRepository } from '../repositories';
-import getLoanIdQueryString from '../utils/getLoanIdQueryString';
 import errorHandler from '../../utils/errorHandler';
 import WidgetUtils from '../../utils/widgetUtils';
+import { LoanRepository } from '../repositories';
+import getLoanIdQueryString from '../utils/getLoanIdQueryString';
 
 export default function useGetLoan() {
   const [loading, setLoading] = useState(false);
