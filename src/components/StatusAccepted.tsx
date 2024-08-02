@@ -45,10 +45,10 @@ export default function StatusAccepted() {
       </div>
       <div className="col-12 col-lg-6">
         <div className="d-flex flex-column gap-4 bg-white p-4 mx-md-8 rounded-2 shadow-sm">
-          <h5 className="fw-bold">
+          <h4 className="fw-bold">
             {t('status.accepted.conditions.text')}
-          </h5>
-          <div className="d-flex align-items-center gap-1 bg-light rounded-1 p-4">
+          </h4>
+          <div className="d-flex align-items-center gap-1 bg-secondary-soft rounded-1 p-4">
             <Trans
               i18nKey="status.accepted.conditions.totalToPay"
               values={{ amount: format(details.total) }}
@@ -58,7 +58,7 @@ export default function StatusAccepted() {
               }}
             />
           </div>
-          <div className="d-flex flex-column gap-4 bg-light rounded-1 p-4">
+          <div className="d-flex flex-column gap-4 bg-secondary-soft rounded-1 p-4">
             <div className="d-flex gap-4">
               <span className="flex-grow-1">{t('status.accepted.conditions.loanId')}</span>
               <span className="fw-bold">{loanDisplayId}</span>
@@ -84,6 +84,7 @@ export default function StatusAccepted() {
                   placement="top"
                   padding={16}
                   offSet={5}
+                  theme="secondary"
                   Component={(
                     <DIcon
                       icon="question-circle"
@@ -109,6 +110,7 @@ export default function StatusAccepted() {
                   placement="top"
                   padding={16}
                   offSet={5}
+                  theme="secondary"
                   Component={(
                     <DIcon
                       icon="question-circle"
