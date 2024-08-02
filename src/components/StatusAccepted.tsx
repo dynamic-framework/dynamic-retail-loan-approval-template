@@ -7,12 +7,13 @@ import {
   DIcon,
   DCurrencyText,
 } from '@dynamic-framework/ui-react';
-import { Trans, useTranslation } from 'react-i18next';
 import classNames from 'classnames';
+import { Trans, useTranslation } from 'react-i18next';
+
+import { USER_NAME } from '../config/widgetConfig';
+import useAcceptLoan from '../services/hooks/useAcceptLoan';
 import { useAppSelector } from '../store/hooks';
 import { getLoanOffer } from '../store/selectors';
-import useAcceptLoan from '../services/hooks/useAcceptLoan';
-import { USER_NAME } from '../config/widgetConfig';
 
 export default function StatusAccepted() {
   const { t } = useTranslation();

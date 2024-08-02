@@ -1,4 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
+
 import { RootState } from './store';
 
 const getState = (state: RootState) => state.widget;

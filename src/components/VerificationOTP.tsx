@@ -5,6 +5,7 @@
 import { DButton, DInputPin } from '@dynamic-framework/ui-react';
 import { useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
+
 import useValidateOtp from '../services/hooks/useValidateOtp';
 
 export default function VerificationOTP() {

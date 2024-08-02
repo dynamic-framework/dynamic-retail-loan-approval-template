@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { useCallback, useState } from 'react';
 import {
   DModal,
   useFormatCurrency,
@@ -7,10 +6,11 @@ import {
   DModalBody,
   useDPortalContext,
 } from '@dynamic-framework/ui-react';
+import { useCallback, useState } from 'react';
 
+import { Account } from '../services/interface';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { getDepositAccounts, getReceiveAccount } from '../store/selectors';
-import { Account } from '../services/interface';
 import { setReceiveAccount } from '../store/slice';
 
 export default function ModalAccountSelector() {

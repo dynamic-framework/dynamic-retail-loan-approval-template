@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+
 import { Account, DepositAccount, LoanReview } from '../services/interface';
 
 export type Step = 'approval' | 'otp' | 'receiveTo' | 'loan';

@@ -3,6 +3,7 @@ import {
   DIcon,
 } from '@dynamic-framework/ui-react';
 import { useTranslation } from 'react-i18next';
+
 import WidgetUtils from '../utils/widgetUtils';
 
 export default function StatusToPay() {
