@@ -5,15 +5,16 @@ import {
   DQuickActionButton,
   useDPortalContext,
 } from '@dynamic-framework/ui-react';
-
-import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import { useAppSelector } from '../store/hooks';
-import { getReceiveAccount } from '../store/selectors';
-import AccountSkeleton from './AccountSkeleton';
+import { useTranslation } from 'react-i18next';
+
+import { AccountTypeConfig } from '../services/config';
 import useDepositAccounts from '../services/hooks/useDepositAccounts';
 import useTransferTo from '../services/hooks/useTransferTo';
-import { AccountTypeConfig } from '../services/config';
+import { useAppSelector } from '../store/hooks';
+import { getReceiveAccount } from '../store/selectors';
+
+import AccountSkeleton from './AccountSkeleton';
 
 export default function ReceiveFundsTo() {
   const { t } = useTranslation();

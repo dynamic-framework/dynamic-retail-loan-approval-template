@@ -1,15 +1,13 @@
 import { useDContext } from '@dynamic-framework/ui-react';
 import { useEffect } from 'react';
 
-import useGetLoan from './services/hooks/useGetLoan';
-import { SITE_LANG, VARS_CURRENCY } from './config/widgetConfig';
-
+import LoanSkeleton from './components/LoanSkeleton';
 import ReceiveFundsTo from './components/ReceiveFundsTo';
 import StatusAccepted from './components/StatusAccepted';
 import StatusToPay from './components/StatusToPay';
 import VerificationOTP from './components/VerificationOTP';
-import LoanSkeleton from './components/LoanSkeleton';
-
+import { SITE_LANG, VARS_CURRENCY } from './config/widgetConfig';
+import useGetLoan from './services/hooks/useGetLoan';
 import { useAppSelector } from './store/hooks';
 import { getStep } from './store/selectors';
 

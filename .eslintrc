@@ -61,6 +61,52 @@
           {
             "checksVoidReturn": false
           }
+        ],
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": [
+              "src/setupTests.ts"
+            ]
+          }
+        ],
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              [
+                "builtin",
+                "external",
+                "internal"
+              ],
+              "parent",
+              "sibling",
+              "index"
+            ],
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.spec.ts",
+        "*.spec.tsx",
+        "jest.config.js"
+      ],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": true
+          }
         ]
       }
     }

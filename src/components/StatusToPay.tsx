@@ -1,8 +1,9 @@
 import {
+  DAlert,
   DButton,
-  DIcon,
 } from '@dynamic-framework/ui-react';
 import { useTranslation } from 'react-i18next';
+
 import WidgetUtils from '../utils/widgetUtils';
 
 export default function StatusToPay() {
@@ -26,12 +27,12 @@ export default function StatusToPay() {
         <h2 className="fs-5 fw-bold text-gray text-center">
           {t('status.toPay.text')}
         </h2>
-        <div className="d-flex align-items-center gap-4 bg-light rounded-2 py-4 px-6 shadow-sm">
-          <DIcon icon="chat" size="1.5rem" theme="secondary" />
-          <p className="sp text-gray-700 mb-0">
-            {t('status.toPay.message')}
-          </p>
-        </div>
+        <DAlert
+          icon="chat"
+          soft
+        >
+          {t('status.toPay.message')}
+        </DAlert>
         <DButton
           text={t('status.toPay.button')}
           onClick={goToHome}

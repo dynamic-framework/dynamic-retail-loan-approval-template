@@ -1,9 +1,8 @@
+import type { ApiAccount } from '../api-interface';
 import {
   AccountBaseType,
   ApiAccountTypeConfig,
 } from '../config';
-
-import type { ApiAccount } from '../api-interface';
 import type { DepositAccount } from '../interface';
 
 export default function accountMapper(apiAccount: ApiAccount): DepositAccount {

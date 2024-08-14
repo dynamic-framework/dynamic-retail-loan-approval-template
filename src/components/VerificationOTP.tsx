@@ -5,6 +5,7 @@
 import { DButton, DInputPin } from '@dynamic-framework/ui-react';
 import { useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
+
 import useValidateOtp from '../services/hooks/useValidateOtp';
 
 export default function VerificationOTP() {
@@ -18,7 +19,7 @@ export default function VerificationOTP() {
       <div className="col-lg-8 col-xl-6">
         <div className="d-flex flex-column gap-6 bg-white rounded p-4 pb-8 shadow-sm">
           <div className="d-block">
-            <h2 className="fs-5 fw-bold mb-4">
+            <h2 className="fs-4 fw-bold mb-4">
               {t('otp.securityCode')}
             </h2>
             <p className="sp mb-0">
