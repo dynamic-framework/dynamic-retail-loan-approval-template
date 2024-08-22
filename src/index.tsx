@@ -14,7 +14,10 @@ import ModalAccountSelector from './components/ModalAccountSelector';
 import reportWebVitals from './reportWebVitals';
 import store from './store/store';
 
-import '@dynamic-framework/ui-react/dist/css/dynamic-ui.css';
+if (process.env.NODE_ENV === 'development') {
+  // eslint-disable-next-line global-require
+  require('@dynamic-framework/ui-react/dist/css/dynamic-ui.css');
+}
 
 const root = ReactDOM.createRoot(document.getElementById('loanApprovalTemplate') as Element);
 root.render(
