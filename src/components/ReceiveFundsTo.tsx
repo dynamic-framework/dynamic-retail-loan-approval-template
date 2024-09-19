@@ -14,7 +14,7 @@ import useTransferTo from '../services/hooks/useTransferTo';
 import { useAppSelector } from '../store/hooks';
 import { getReceiveAccount } from '../store/selectors';
 
-import AccountSkeleton from './AccountSkeleton';
+import AccountLoader from './loaders/AccountLoader';
 
 export default function ReceiveFundsTo() {
   const { t } = useTranslation();
@@ -36,7 +36,7 @@ export default function ReceiveFundsTo() {
             {t('receiveFunds')}
           </h2>
           {loadingAccounts && (
-            <AccountSkeleton />
+            <AccountLoader />
           )}
           {!loadingAccounts && receiveAccount && (
             <DQuickActionButton
