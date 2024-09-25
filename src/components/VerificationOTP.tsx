@@ -8,6 +8,8 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import useValidateOtp from '../services/hooks/useValidateOtp';
 
+const OTP_SIZE = 6;
+
 export default function VerificationOTP() {
   const { t } = useTranslation();
 
@@ -31,10 +33,10 @@ export default function VerificationOTP() {
             id="verification-otp"
             labelIcon=""
             hint={t('otp.enterCode')}
-            characters={4}
+            characters={OTP_SIZE}
             onChange={(value) => setInputOTP(value)}
             type="number"
-            valid={inputOTP.length === 4}
+            valid={inputOTP.length === OTP_SIZE}
           />
           <div className="d-block">
             <p className="small mb-2">{t('otp.notReceived')}</p>
@@ -52,7 +54,7 @@ export default function VerificationOTP() {
             <DButton
               text={t('button.continue')}
               onClick={validateOtp}
-              {...inputOTP.length < 4 && { state: 'disabled' }}
+              disabled={inputOTP.length < OTP_SIZE}
               loading={loading}
             />
           </div>
