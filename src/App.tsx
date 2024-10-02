@@ -1,7 +1,7 @@
 import { useDContext } from '@dynamic-framework/ui-react';
 import { useEffect } from 'react';
 
-import LoanSkeleton from './components/LoanSkeleton';
+import ApprovalLoader from './components/loaders/ApprovalLoader';
 import ReceiveFundsTo from './components/ReceiveFundsTo';
 import StatusAccepted from './components/StatusAccepted';
 import StatusToPay from './components/StatusToPay';
@@ -33,7 +33,7 @@ export default function App() {
 
   return (
     <div className="container py-4">
-      {(loading || !loanOffer) && <LoanSkeleton />}
+      {(loading || !loanOffer) && <ApprovalLoader />}
       {!loading && loanOffer && <View />}
     </div>
   );
