@@ -18,11 +18,11 @@ export default function useTransferTo() {
     if (receiveAccount) {
       try {
         setLoading(true);
-        await LoanRepository.accept(
-          loanDisplayId,
-          receiveAccount.id,
-          { abortSignal: abortController.signal },
-        );
+        await LoanRepository.accept({
+          loanId: loanDisplayId,
+          receiveId: receiveAccount.id,
+          config: { abortSignal: abortController.signal },
+        });
         dispatch(setStep('loan'));
         setLoading(false);
       } catch (error) {

@@ -24,10 +24,10 @@ export default function useGetLoanEffect() {
     (async () => {
       setLoading(true);
       try {
-        const data = await LoanRepository.review(
+        const data = await LoanRepository.review({
           loanId,
-          { abortSignal: abortController.signal },
-        );
+          config: { abortSignal: abortController.signal },
+        });
         dispatch(setLoanOffer(data));
         setLoading(false);
       } catch (error) {
