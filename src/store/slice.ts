@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 
 import { Account, DepositAccount, LoanReview } from '../services/interface';
 
-export type Step = 'approval' | 'otp' | 'receiveTo' | 'loan';
+export type Step = 'approval' | 'receiveTo' | 'loan';
 
 export type WidgetState = {
   step: Step;

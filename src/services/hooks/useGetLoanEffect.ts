@@ -1,3 +1,4 @@
+import { getQueryString } from '@dynamic-framework/ui-react';
 import { useEffect, useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -6,9 +7,8 @@ import { setLoanOffer } from '../../store/slice';
 import errorHandler from '../../utils/errorHandler';
 import WidgetUtils from '../../utils/widgetUtils';
 import { LoanRepository } from '../repositories';
-import getLoanIdQueryString from '../utils/getLoanIdQueryString';
 
-export default function useGetLoan() {
+export default function useGetLoanEffect() {
   const [loading, setLoading] = useState(false);
   const loanOffer = useAppSelector(getLoanOffer);
   const dispatch = useAppDispatch();
@@ -16,7 +16,7 @@ export default function useGetLoan() {
   useEffect(() => {
     const abortController = new AbortController();
 
-    const loanId = getLoanIdQueryString();
+    const loanId = getQueryString('loan_id');
     if (!loanId) {
       goToPath('EMPTY_ID');
       return () => {};

@@ -6,6 +6,7 @@ import {
   DTooltip,
   DIcon,
   DCurrencyText,
+  DCard,
 } from '@dynamic-framework/ui-react';
 import classNames from 'classnames';
 import { Trans, useTranslation } from 'react-i18next';
@@ -44,113 +45,114 @@ export default function StatusAccepted() {
         </p>
       </div>
       <div className="col-12 col-lg-6">
-        <div className="d-flex flex-column gap-4 bg-white p-4 mx-md-8 rounded-2 shadow-sm">
-          <h4 className="fw-bold">
-            {t('status.accepted.conditions.text')}
-          </h4>
-          <div className="d-flex align-items-center gap-1 bg-secondary-soft rounded-1 p-4">
-            <Trans
-              i18nKey="status.accepted.conditions.totalToPay"
-              values={{ amount: format(details.total) }}
-              components={{
-                1: <span className="fw-bold" />,
-                2: <span className="fw-bold fs-5" />,
-              }}
-            />
-          </div>
-          <div className="d-flex flex-column gap-4 bg-secondary-soft rounded-1 p-4">
-            <div className="d-flex gap-4">
-              <span className="flex-grow-1">{t('status.accepted.conditions.loanId')}</span>
-              <span className="fw-bold">{loanDisplayId}</span>
+        <DCard>
+          <DCard.Body className="d-flex flex-column gap-4">
+            <h4 className="fw-bold">
+              {t('status.accepted.conditions.text')}
+            </h4>
+            <div className="d-flex align-items-center gap-1 bg-secondary-soft rounded-1 p-4">
+              <Trans
+                i18nKey="status.accepted.conditions.totalToPay"
+                values={{ amount: format(details.total) }}
+                components={{
+                  1: <span className="fw-bold" />,
+                  2: <span className="fw-bold fs-5" />,
+                }}
+              />
             </div>
-            <div className="d-flex gap-4">
-              <span className="flex-grow-1">{t('status.accepted.conditions.amountRequested')}</span>
-              <DCurrencyText className="fw-bold" value={details.amount} />
+            <div className="d-flex flex-column gap-4 bg-secondary-soft rounded-1 p-4">
+              <div className="d-flex gap-4">
+                <span className="flex-grow-1">{t('status.accepted.conditions.loanId')}</span>
+                <span className="fw-bold">{loanDisplayId}</span>
+              </div>
+              <div className="d-flex gap-4">
+                <span className="flex-grow-1">{t('status.accepted.conditions.amountRequested')}</span>
+                <DCurrencyText className="fw-bold" value={details.amount} />
+              </div>
+              <div className="d-flex gap-4">
+                <span className="flex-grow-1">{t('status.accepted.conditions.term')}</span>
+                <span className="fw-bold">{t('status.accepted.conditions.termInstallments', { months: details.installments.count })}</span>
+              </div>
+              <div className="d-flex gap-4">
+                <span className="flex-grow-1">{t('status.accepted.conditions.monthlyInstallments')}</span>
+                <DCurrencyText className="fw-bold" value={details.installments.amount} />
+              </div>
+              <div className="d-flex gap-4">
+                <span className="d-flex flex-grow-1 align-items-center gap-2">
+                  {t('status.accepted.conditions.annualInterestRate')}
+                  <DTooltip
+                    childrenClassName="bg-transparent border-0 p-0 cursor-help"
+                    className="max-width-tooltip"
+                    placement="top"
+                    padding={16}
+                    offSet={5}
+                    theme="secondary"
+                    Component={(
+                      <DIcon
+                        icon="question-circle"
+                        theme="secondary"
+                        size="1rem"
+                      />
+                    )}
+                  >
+                    <small>{t('tooltip.annualInterestRate')}</small>
+                  </DTooltip>
+                </span>
+                <span className="fw-bold">
+                  {details.interestRate.annually}
+                  %
+                </span>
+              </div>
+              <div className="d-flex gap-4">
+                <span className="d-flex flex-grow-1 align-items-center gap-2">
+                  {t('status.accepted.conditions.monthlyInterestRate')}
+                  <DTooltip
+                    childrenClassName="bg-transparent border-0 p-0 cursor-help"
+                    className="max-width-tooltip"
+                    placement="top"
+                    padding={16}
+                    offSet={5}
+                    theme="secondary"
+                    Component={(
+                      <DIcon
+                        icon="question-circle"
+                        theme="secondary"
+                        size="1rem"
+                      />
+                    )}
+                  >
+                    <small>{t('tooltip.lifeInsurance')}</small>
+                  </DTooltip>
+                </span>
+                <span className="fw-bold">
+                  {details.interestRate.monthly}
+                  %
+                </span>
+              </div>
             </div>
-            <div className="d-flex gap-4">
-              <span className="flex-grow-1">{t('status.accepted.conditions.term')}</span>
-              <span className="fw-bold">{t('status.accepted.conditions.termInstallments', { months: details.installments.count })}</span>
+            <small>
+              {t('status.accepted.conditions.message')}
+            </small>
+            <div className={classNames(
+              'd-flex flex-column flex-sm-row',
+              'align-items-stretch',
+              'gap-2 gap-md-8 p-4',
+            )}
+            >
+              <DButton
+                className="flex-1"
+                text={t('status.accepted.conditions.buttonReject')}
+                variant="outline"
+              />
+              <DButton
+                className="flex-1"
+                loading={loading}
+                text={t('status.accepted.conditions.buttonAccept')}
+                onClick={acceptLoan}
+              />
             </div>
-            <div className="d-flex gap-4">
-              <span className="flex-grow-1">{t('status.accepted.conditions.monthlyInstallments')}</span>
-              <DCurrencyText className="fw-bold" value={details.installments.amount} />
-            </div>
-            <div className="d-flex gap-4">
-              <span className="d-flex flex-grow-1 align-items-center gap-2">
-                {t('status.accepted.conditions.annualInterestRate')}
-                <DTooltip
-                  childrenClassName="bg-transparent border-0 p-0 cursor-help"
-                  className="max-width-tooltip"
-                  placement="top"
-                  padding={16}
-                  offSet={5}
-                  theme="secondary"
-                  Component={(
-                    <DIcon
-                      icon="question-circle"
-                      theme="secondary"
-                      size="1rem"
-                    />
-                  )}
-                >
-                  <small>{t('tooltip.annualInterestRate')}</small>
-                </DTooltip>
-              </span>
-              <span className="fw-bold">
-                {details.interestRate.annually}
-                %
-              </span>
-            </div>
-            <div className="d-flex gap-4">
-              <span className="d-flex flex-grow-1 align-items-center gap-2">
-                {t('status.accepted.conditions.monthlyInterestRate')}
-                <DTooltip
-                  childrenClassName="bg-transparent border-0 p-0 cursor-help"
-                  className="max-width-tooltip"
-                  placement="top"
-                  padding={16}
-                  offSet={5}
-                  theme="secondary"
-                  Component={(
-                    <DIcon
-                      icon="question-circle"
-                      theme="secondary"
-                      size="1rem"
-                    />
-                  )}
-                >
-                  <small>{t('tooltip.lifeInsurance')}</small>
-                </DTooltip>
-              </span>
-              <span className="fw-bold">
-                {details.interestRate.monthly}
-                %
-              </span>
-            </div>
-          </div>
-          <small>
-            {t('status.accepted.conditions.message')}
-          </small>
-          <div className={classNames(
-            'd-flex flex-column flex-sm-row',
-            'align-items-stretch',
-            'gap-2 gap-md-8 p-4',
-          )}
-          >
-            <DButton
-              className="d-grid flex-1"
-              text={t('status.accepted.conditions.buttonReject')}
-              variant="outline"
-              theme="secondary"
-            />
-            <DButton
-              className="d-grid flex-1"
-              loading={loading}
-              text={t('status.accepted.conditions.buttonAccept')}
-              onClick={acceptLoan}
-            />
-          </div>
-        </div>
+          </DCard.Body>
+        </DCard>
       </div>
     </div>
   );
