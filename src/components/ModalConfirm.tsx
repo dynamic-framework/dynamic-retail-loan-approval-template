@@ -4,7 +4,7 @@ import useValidateOtp from '../services/hooks/useValidateOtp';
 
 import OtpModal from './Otp/OtpModal';
 
-export default function Confirm() {
+export default function ModalConfirm() {
   const { t } = useTranslation();
   const { loading, validateOtp } = useValidateOtp();
   return (

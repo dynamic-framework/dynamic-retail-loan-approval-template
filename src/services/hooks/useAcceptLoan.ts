@@ -8,7 +8,7 @@ export default function useAcceptLoan() {
   const acceptLoan = useCallback(() => {
     setLoading(true);
     setTimeout(() => {
-      openPortal('confirm', {});
+      openPortal('modalConfirm', {});
       setLoading(false);
     }, 1000);
   }, [openPortal]);

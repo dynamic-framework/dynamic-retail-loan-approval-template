@@ -10,7 +10,7 @@ import './config/liquidConfig';
 import './config/i18nConfig';
 
 import App from './App';
-import Confirm from './components/Confirm';
+import ModalConfirm from './components/ModalConfirm';
 import store from './store/store';
 
 import '@dynamic-framework/ui-react/dist/css/dynamic-ui.css';
@@ -22,7 +22,7 @@ root.render(
       <DContextProvider
         portalName="portal"
         availablePortals={{
-          confirm: Confirm,
+          modalConfirm: ModalConfirm,
         }}
       >
         <App />
