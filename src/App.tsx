@@ -10,7 +10,7 @@ import useGetLoanEffect from './services/hooks/useGetLoanEffect';
 import { useAppSelector } from './store/hooks';
 import { getStep } from './store/selectors';
 
-const COMPONENTS = {
+const VIEW = {
   approval: StatusAccepted,
   receiveTo: ReceiveFundsTo,
   loan: StatusToPay,
@@ -20,7 +20,7 @@ export default function App() {
   const { setContext } = useDContext();
   const { loading, loanOffer } = useGetLoanEffect();
   const step = useAppSelector(getStep);
-  const View = COMPONENTS[step];
+  const View = VIEW[step];
 
   useEffect(() => {
     setContext({

@@ -1,11 +1,8 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
-/* eslint-disable react/jsx-props-no-spreading */
 import {
   DButton,
   DCard,
   DSelect,
 } from '@dynamic-framework/ui-react';
-import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import useDepositAccounts from '../services/hooks/useDepositAccounts';
@@ -24,14 +21,6 @@ export default function ReceiveFundsTo() {
   const accounts = useAppSelector(getDepositAccounts);
   const dispatch = useAppDispatch();
 
-  const OPTIONS = useMemo(() => (
-    accounts.map((account) => ({
-      ...account,
-      label: `${account.name} - ${account.accountNumber.slice(-3)}`,
-      value: account.id,
-    }))
-  ), [accounts]);
-
   return (
     <div className="row justify-content-center">
       <div className="col-lg-8 col-xl-6">
@@ -49,12 +38,9 @@ export default function ReceiveFundsTo() {
                   if (!account) return;
                   dispatch(setReceiveAccount(accounts.find((a) => a.id === account.id)));
                 }}
-                value={{
-                  id: receiveAccount.id,
-                  label: `${receiveAccount.name} - ${receiveAccount.accountNumber.slice(-3)}`,
-                  value: receiveAccount.id,
-                }}
-                options={OPTIONS}
+                getOptionLabel={(option) => option.name}
+                getOptionValue={(option) => option.id}
+                options={accounts}
               />
             )}
             <div className="d-flex justify-content-center">
@@ -62,9 +48,6 @@ export default function ReceiveFundsTo() {
                 text={t('button.continue')}
                 loading={loadingTransfer}
                 onClick={transfer}
-                {...!receiveAccount && {
-                  state: 'disabled',
-                }}
               />
             </div>
           </DCard.Body>
