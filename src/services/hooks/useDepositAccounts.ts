@@ -16,7 +16,9 @@ export default function useDepositAccounts() {
     (async () => {
       try {
         setLoading(true);
-        const data = await AccountRepository.list({ abortSignal: abortController.signal });
+        const data = await AccountRepository.list({
+          config: { abortSignal: abortController.signal },
+        });
         dispatch(setDepositAccounts(data));
         dispatch(setReceiveAccount(data[0]));
         setLoading(false);

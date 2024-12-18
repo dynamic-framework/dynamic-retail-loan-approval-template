@@ -2,9 +2,9 @@ export default function AccountLoader() {
   return (
     <div className="d-flex flex-column placeholder-glow">
       <span
-        className="placeholder bg-secondary-200 rounded-2"
+        className="placeholder rounded-1"
         style={{
-          height: '5rem',
+          height: '3rem',
         }}
       />
     </div>

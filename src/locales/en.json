@@ -34,7 +34,10 @@
     "confirmLabel": "We've sent a confirmation text to you number:",
     "enterCode": "Enter security code",
     "notReceived": "Didn't receive a code?",
-    "resend": "<link1>Resend code</link1> or <link2>contact us</link2>"
+    "problems": "<p>Problems with your digital token? <a>Contact us</a></p>",
+    "countdown": "<p>Didn't you get any code? Resend in {value}</p>",
+    "countdownResend": "<p>Didn't you get any code? <button></button></p>",
+    "resend": "Resend code"
   },
   "tooltip": {
     "annualInterestRate": "The price (expressed in percentage) paid by the borrower for the loan, reflecting not only the interest rate but also fees paid when obtaining the principal amount",

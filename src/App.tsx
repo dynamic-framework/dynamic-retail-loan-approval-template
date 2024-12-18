@@ -5,24 +5,22 @@ import ApprovalLoader from './components/loaders/ApprovalLoader';
 import ReceiveFundsTo from './components/ReceiveFundsTo';
 import StatusAccepted from './components/StatusAccepted';
 import StatusToPay from './components/StatusToPay';
-import VerificationOTP from './components/VerificationOTP';
 import { SITE_LANG, VARS_CURRENCY } from './config/widgetConfig';
-import useGetLoan from './services/hooks/useGetLoan';
+import useGetLoanEffect from './services/hooks/useGetLoanEffect';
 import { useAppSelector } from './store/hooks';
 import { getStep } from './store/selectors';
 
-const COMPONENTS = {
+const VIEW = {
   approval: StatusAccepted,
-  otp: VerificationOTP,
   receiveTo: ReceiveFundsTo,
   loan: StatusToPay,
 };
 
 export default function App() {
   const { setContext } = useDContext();
-  const { loading, loanOffer } = useGetLoan();
+  const { loading, loanOffer } = useGetLoanEffect();
   const step = useAppSelector(getStep);
-  const View = COMPONENTS[step];
+  const View = VIEW[step];
 
   useEffect(() => {
     setContext({
@@ -32,7 +30,7 @@ export default function App() {
   }, [setContext]);
 
   return (
-    <div className="container py-4">
+    <div className="container">
       {(loading || !loanOffer) && <ApprovalLoader />}
       {!loading && loanOffer && <View />}
     </div>

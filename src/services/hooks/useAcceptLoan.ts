@@ -1,20 +1,17 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { useDPortalContext } from '@dynamic-framework/ui-react';
 import { useCallback, useState } from 'react';
-
-import { useAppDispatch } from '../../store/hooks';
-import { setStep } from '../../store/slice';
 
 export default function useAcceptLoan() {
   const [loading, setLoading] = useState(false);
-  const dispatch = useAppDispatch();
+  const { openPortal } = useDPortalContext();
 
   const acceptLoan = useCallback(() => {
     setLoading(true);
     setTimeout(() => {
-      dispatch(setStep('otp'));
+      openPortal('modalConfirm', {});
       setLoading(false);
     }, 1000);
-  }, [dispatch]);
+  }, [openPortal]);
 
   return {
     loading,

@@ -1,43 +1,36 @@
-import { GenericAbortSignal } from 'axios';
-
 import { ApiLoanAccepted, ApiLoanReview } from '../api-interface';
 import ApiClient from '../clients/apiClient';
 import { loanAcceptMapper, loanReviewMapper } from '../mappers/loanReviewMapper';
 
-export async function review(
-  loanId: string,
-  config: { abortSignal: GenericAbortSignal },
-) {
+import { RepositoryParams } from './repository';
+
+export async function review(params: RepositoryParams<{ loanId: string }>) {
   const { data } = await ApiClient.request<ApiLoanReview>({
     url: '/loan/offer/review',
     method: 'GET',
-    signal: config.abortSignal,
+    signal: params.config?.abortSignal,
     headers: {
       Prefer: 'code=200',
     },
     params: {
-      account_id: loanId,
+      account_id: params.loanId,
     },
   });
 
   return loanReviewMapper(data);
 }
 
-export async function accept(
-  loanDisplayId: string,
-  receiveAccountId: string,
-  config: { abortSignal: GenericAbortSignal },
-) {
+export async function accept(params: RepositoryParams<{ loanId: string; receiveId: string }>) {
   const { data } = await ApiClient.request<ApiLoanAccepted>({
     url: '/loan/offer/accept',
     method: 'POST',
-    signal: config.abortSignal,
+    signal: params.config?.abortSignal,
     headers: {
       Prefer: 'code=200',
     },
     data: {
-      loanId: loanDisplayId,
-      depositId: receiveAccountId,
+      loanId: params.loanId,
+      depositId: params.receiveId,
     },
   });
 
