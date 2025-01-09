@@ -24,6 +24,7 @@ export function loanReviewMapper(apiLoanReview: ApiLoanReview): LoanReview {
 
 export function loanAcceptMapper(apiAccept: ApiLoanAccepted): LoanAccepted {
   return {
-    ...apiAccept,
+    depositId: apiAccept.depositId,
+    confirmationId: apiAccept.confirmationId,
   };
 }
