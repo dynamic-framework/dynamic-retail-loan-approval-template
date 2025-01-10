@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-import { Account, DepositAccount, LoanReview } from '../services/interface';
+import { DepositAccount, LoanReview } from '../services/interface';
 
 export type Step = 'approval' | 'receiveTo' | 'loan';
 
 export type WidgetState = {
   step: Step;
   loanOffer?: LoanReview;
-  depositAccounts: Array<DepositAccount>;
-  receiveAccount?: Account;
+  depositAccounts: DepositAccount[];
+  receiveAccount?: DepositAccount;
 };
 
 const initialState = {
@@ -24,10 +24,10 @@ const slice = createSlice({
     setStep(state, action: PayloadAction<Step>) {
       state.step = action.payload;
     },
-    setDepositAccounts(state, action: PayloadAction<Array<DepositAccount>>) {
+    setDepositAccounts(state, action: PayloadAction<DepositAccount[]>) {
       state.depositAccounts = action.payload;
     },
-    setReceiveAccount(state, action: PayloadAction<Account | undefined>) {
+    setReceiveAccount(state, action: PayloadAction<DepositAccount | undefined>) {
       state.receiveAccount = action.payload;
     },
     setLoanOffer(state, action: PayloadAction<LoanReview>) {
@@ -36,7 +36,6 @@ const slice = createSlice({
   },
 });
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 export const {
   setStep,
   setDepositAccounts,

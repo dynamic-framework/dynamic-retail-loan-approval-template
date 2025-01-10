@@ -18,6 +18,6 @@
     "currency-decimal": ",",
     "path-dashboard": "#",
     "none-id-path": "#",
-    "api-path": "https://stoplight.io/mocks/modyo/dynamic/204091081"
+    "api-path": "https://dynamic-integration.modyo.be/mocks/online-banking"
   }
 }

@@ -1,33 +1,27 @@
-import { ApiLoanAccepted, ApiLoanReview } from '../api-interface';
+import { ApiLoanAccepted, ApiLoanReview, ApiResponseWrapped } from '../api-interface';
 import ApiClient from '../clients/apiClient';
 import { loanAcceptMapper, loanReviewMapper } from '../mappers/loanReviewMapper';
 
 import { RepositoryParams } from './repository';
 
 export async function review(params: RepositoryParams<{ loanId: string }>) {
-  const { data } = await ApiClient.request<ApiLoanReview>({
-    url: '/loan/offer/review',
+  const { data } = await ApiClient.request<ApiResponseWrapped<ApiLoanReview>>({
+    url: 'loan-applications/LOAN/LOAN/application/check-status',
     method: 'GET',
     signal: params.config?.abortSignal,
-    headers: {
-      Prefer: 'code=200',
-    },
     params: {
       account_id: params.loanId,
     },
   });
 
-  return loanReviewMapper(data);
+  return loanReviewMapper(data.content);
 }
 
 export async function accept(params: RepositoryParams<{ loanId: string; receiveId: string }>) {
   const { data } = await ApiClient.request<ApiLoanAccepted>({
-    url: '/loan/offer/accept',
+    url: 'generics',
     method: 'POST',
     signal: params.config?.abortSignal,
-    headers: {
-      Prefer: 'code=200',
-    },
     data: {
       loanId: params.loanId,
       depositId: params.receiveId,

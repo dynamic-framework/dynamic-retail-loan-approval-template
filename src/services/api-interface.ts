@@ -6,27 +6,15 @@ export type ApiErrorItem = {
   detail: string;
 };
 
-export type ApiAccountAccountType = 'REGULAR_SAVINGS' | 'CURRENT_ACCOUNT' | 'LOAN' | 'CREDIT_CARD';
-
-export type ApiAccountType = 'DEPOSIT' | 'LOAN';
+export type ApiResponseWrapped<T> = {
+  content: T;
+};
 
 export type ApiAccount = {
   id: string;
-  nickName: string;
-  accountNumber: string;
-  type: ApiAccountType;
-  accountType: ApiAccountAccountType;
-  accountingBalance: number;
-  availableBalance: number;
-  currency: string;
-  totalCharges: number;
-  totalIncomes: number;
-  closedAt: string;
-  created: string;
-  modified: string;
-  status: string;
-  depositDetails?: ApiDepositDetails;
-  loanDetails?: ApiLoanDetails;
+  number: string;
+  masked_number: string;
+  account_holder_name: string;
 };
 
 export type ApiDepositDetails = {
@@ -83,22 +71,34 @@ export type ApiLoanDetails = {
 };
 
 export type ApiLoanReview = {
-  loanId: string;
-  loanDisplayId: string;
-  details: {
-    accountId: string;
-    amount: number;
-    total: number;
+  application_id: string;
+  application_date: string;
+  loan_details: {
+    simulation_id: string;
+    offer_id: string;
+    loan_amount: number;
+    loan_total: number;
+    rate_settings: {
+      monthly_rate: number;
+      yearly_rate: number;
+      calculation_method: string;
+    };
     installments: {
-      count: number;
       amount: number;
-      period: string;
-    },
-    interestRate: {
-      annually: number;
-      monthly: number;
-    }
-  }
+      term: {
+        count: number;
+        description: string;
+        period: {
+          id: string;
+          name: string;
+          code: string;
+        };
+      };
+    };
+    transaction_fee: number;
+  };
+  status: string;
+  status_date: string;
 };
 
 export type ApiLoanAccepted = {

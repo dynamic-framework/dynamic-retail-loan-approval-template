@@ -38,7 +38,7 @@ export default function ReceiveFundsTo() {
                   if (!account) return;
                   dispatch(setReceiveAccount(accounts.find((a) => a.id === account.id)));
                 }}
-                getOptionLabel={(option) => option.name}
+                getOptionLabel={(option) => option.accountHolderName}
                 getOptionValue={(option) => option.id}
                 options={accounts}
               />
