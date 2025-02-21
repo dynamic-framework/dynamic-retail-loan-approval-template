@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import useValidateOtp from '../services/hooks/useValidateOtp';
 
-import OtpModal from './Otp/OtpModal';
+import OtpModal from './otp/OtpModal';
 
 export default function ModalConfirm() {
   const { t } = useTranslation();
