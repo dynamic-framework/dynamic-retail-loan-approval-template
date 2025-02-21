@@ -2,7 +2,7 @@ export type DepositAccount = {
   id: string;
   number: string;
   maskedNumber: string;
-  accountHolderName: string;
+  accountName: string;
 };
 
 export type LoanReview = {

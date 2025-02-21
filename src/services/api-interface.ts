@@ -14,7 +14,7 @@ export type ApiAccount = {
   id: string;
   number: string;
   masked_number: string;
-  account_holder_name: string;
+  account_name: string;
 };
 
 export type ApiDepositDetails = {
