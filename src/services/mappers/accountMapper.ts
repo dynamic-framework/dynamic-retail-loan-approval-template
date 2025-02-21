@@ -6,6 +6,6 @@ export default function accountMapper(apiAccount: ApiAccount): DepositAccount {
     id: apiAccount.id,
     number: apiAccount.number,
     maskedNumber: apiAccount.masked_number,
-    accountHolderName: apiAccount.account_holder_name,
+    accountName: apiAccount.account_name,
   };
 }

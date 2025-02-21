@@ -67,7 +67,10 @@ export default function StatusAccepted() {
               </div>
               <div className="d-flex gap-4">
                 <span className="flex-grow-1">{t('status.accepted.conditions.amountRequested')}</span>
-                <DCurrencyText className="fw-bold" value={details.amount} />
+                <DCurrencyText
+                  className="fw-bold"
+                  value={details.amount}
+                />
               </div>
               <div className="d-flex gap-4">
                 <span className="flex-grow-1">{t('status.accepted.conditions.term')}</span>
@@ -75,7 +78,10 @@ export default function StatusAccepted() {
               </div>
               <div className="d-flex gap-4">
                 <span className="flex-grow-1">{t('status.accepted.conditions.monthlyInstallments')}</span>
-                <DCurrencyText className="fw-bold" value={details.installments.amount} />
+                <DCurrencyText
+                  className="fw-bold"
+                  value={details.installments.amount}
+                />
               </div>
               <div className="d-flex gap-4">
                 <span className="d-flex flex-grow-1 align-items-center gap-2">
