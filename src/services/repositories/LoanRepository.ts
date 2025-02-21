@@ -1,4 +1,8 @@
-import { ApiLoanAccepted, ApiLoanReview, ApiResponseWrapped } from '../api-interface';
+import {
+  ApiLoanAccepted,
+  ApiLoanReview,
+  ApiResponseWrapped,
+} from '../api-interface';
 import ApiClient from '../clients/apiClient';
 import { loanAcceptMapper, loanReviewMapper } from '../mappers/loanReviewMapper';
 
